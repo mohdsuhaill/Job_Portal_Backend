@@ -15,3 +15,13 @@
 * Use MongoDB for storing and managing tasks, user data, and authentication details.
 * Implement JWT, and Bcrypt for secure access.
 * Integrate middleware for user permissions and role-based access control.
+
+<h1>Postman Documentation:</h1>
+
+
+<h1>Technologies Used:</h1>
+
+* Backend Language: Node.js
+* Backend Framework: Express.js
+* Database: MongoDB
+* Other Technologies: Postman for API documentation
