@@ -11,6 +11,13 @@ import applicationRoute from "./routes/applicationRoute.js"
 dotenv.config({})
 const app = express();
 
+app.get("/",(req,res)=>{
+    return res.status(200).json({
+        message:"Backend Running Successfully",
+        success:"true"
+    })
+})
+
 // middleware   
 
 app.use(express.json());
