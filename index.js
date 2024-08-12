@@ -12,10 +12,7 @@ dotenv.config({})
 const app = express();
 
 app.get("/",(req,res)=>{
-    return res.status(200).json({
-        message:"Backend Running Successfully",
-        success:"true"
-    })
+    return res.status(200).send("Backend Running Successfully")
 })
 
 // middleware   
