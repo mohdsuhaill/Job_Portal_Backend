@@ -8,3 +8,10 @@
 * Provides personalized job recommendations based on the user's profile and search history to help them find relevant opportunities.<br>
 * Enables candidates to track the status of their job applications and manage their application history.<br>
 * Sends notifications to users about new job opportunities (Through Email), application status updates, and other relevant information.<br>
+
+<h1>Backend:</h1>
+
+* Set up Node.js and Express.js for creating RESTful APIs to handle requests and responses.
+* Use MongoDB for storing and managing tasks, user data, and authentication details.
+* Implement JWT, and Bcrypt for secure access.
+* Integrate middleware for user permissions and role-based access control.
