@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended:true}));
 app.use(cookieParser());
 
 const corsOption ={
-    origin:'https://jobportalprojt.netlify.app',
+    origin:'https://jobportalprojt.netlify.app/',
     credentials:true
 }
 
