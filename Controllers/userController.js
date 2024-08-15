@@ -15,9 +15,9 @@ export const register = async (req, res) => {
         success: false,
       });
     }
-    const file =req.file;
-    const fileUri = getDatauri(file);
-    const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
+     const file =req.file;
+     const fileUri = getDatauri(file);
+     const cloudResponse = await cloudinary.uploader.upload(fileUri.content);
 
     const user = await User.findOne({ email });
     if (user) {
@@ -35,7 +35,7 @@ export const register = async (req, res) => {
       password: hashedPassword,
       role,
       profile:{
-        profilePhoto:cloudResponse.secure_url,
+         profilePhoto:cloudResponse.secure_url,
       }
     });
     return res.status(201).json({
@@ -103,15 +103,11 @@ export const login = async (req, res) => {
 
     return res
       .status(200)
-      .cookie("token", token, {
-        maxAge: 1 * 24 * 60 * 60 * 1000,
-        httpOnly: true,
-        sameSite: "strict",
-      })
       .json({
         message: `welocome Back ${user.fullname}`,
         user,
         success: true,
+        token:token
       });
   } catch (error) {
     console.log(error);
@@ -135,7 +131,7 @@ export const updateProfile = async (req,res)=>{
         const {fullname,email,phoneNumber,bio,skills} = req.body;
         // console.log(fullname,email,phoneNumber,bio,skills);
         
-        const file = req.file;
+       const file = req.file;
 
           //   cloudinary 
        const fileUri = getDatauri(file)
@@ -149,9 +145,10 @@ export const updateProfile = async (req,res)=>{
              skillsArray = skills.split(",");
           }
          
-          const userId = req.id ;
+          const userId = req.user.userId ;
+          console.log("userId: "+userId);
           let user =await User.findById(userId);
-
+          console.log(user);
           if(!user){
             return res.status(400).json({
                 message:"user Not Found",
@@ -168,7 +165,7 @@ export const updateProfile = async (req,res)=>{
        
     
 
-        //   resume will be upadate later
+         // resume will be upadate later
         if(cloudResponse){
           user.profile.resume = cloudResponse.secure_url 
           user.profile.resumerOrginalName = file.originalname
@@ -186,7 +183,8 @@ export const updateProfile = async (req,res)=>{
         return res.status(200).json({
             message:"Profile Update successfully",
             user,
-            success:true
+            success:true,
+            
         })
         
     } catch (error) {
