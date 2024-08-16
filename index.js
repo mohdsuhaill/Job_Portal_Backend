@@ -24,6 +24,7 @@ app.use(cookieParser());
  const corsOption ={
      origin:'https://jobportalprojt.netlify.app',
      credentials:true
+     
  }
 
 // const corsOption ={
