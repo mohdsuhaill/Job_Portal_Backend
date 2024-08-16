@@ -133,7 +133,7 @@ export const updateProfile = async (req,res)=>{
         
        const file = req.file;
 
-          //   cloudinary 
+            cloudinary 
        const fileUri = getDatauri(file)
        const cloudResponse = await cloudinary.uploader.upload(fileUri.content)
 

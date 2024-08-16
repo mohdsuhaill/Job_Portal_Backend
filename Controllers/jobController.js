@@ -1,8 +1,22 @@
 import { Job } from "../models/jobSchema.js";
+import { User } from "../models/userSchema.js";
 
 // admin Post job
 export const postJob = async (req, res) => {
   try {
+      
+    const userId = req.user.userId ;
+    console.log("userId: "+userId);
+    let user =await User.findById(userId);
+    console.log(user);
+    if(!user){
+      return res.status(400).json({
+          message:"user Not Found",
+          success:false
+      })
+    }
+    
+
     const {
       title,
       description,
@@ -14,7 +28,9 @@ export const postJob = async (req, res) => {
       position,
       companyId,
     } = req.body;
-    const userId = req.id;
+    // const userId = req.user.userId;
+    // console.log(userId);
+    
 
     if (
       !title ||
@@ -57,6 +73,18 @@ export const postJob = async (req, res) => {
 
 // for Student 
 export const getAllJob = async (req,res)=>{
+    
+    const userId = req.user.userId ;
+    console.log("userId: "+userId);
+    let user =await User.findById(userId);
+    console.log(user);
+    if(!user){
+      return res.status(400).json({
+          message:"user Not Found",
+          success:false
+      })
+    }
+
     try {
         const keyword = req.query.keyword || "";
         const query ={
@@ -86,6 +114,18 @@ export const getAllJob = async (req,res)=>{
 // for  student 
 export const getJobId = async (req,res)=>{
     try {
+         
+        // const userId = req.user.userId ;
+        // console.log("userId: "+userId);
+        // let user =await User.findById(userId);
+        // console.log(user);
+        // if(!user){
+        //   return res.status(400).json({
+        //       message:"user Not Found",
+        //       success:false
+        //   })
+        // }
+
         const jobId = req.params.id;
         const job = await Job.findById(jobId).populate({
             path:"applications"
@@ -107,7 +147,21 @@ export const getJobId = async (req,res)=>{
 
 export const getAdminJobs = async (req,res)=>{
     try {
-        const adminId = req.id;
+
+        const userId = req.user.userId ;
+        console.log("userId: "+userId);
+        let user =await User.findById(userId);
+        console.log(user);
+        if(!user){
+          return res.status(400).json({
+              message:"user Not Found",
+              success:false
+          })
+        }
+
+        const adminId = req.user.userId;
+        console.log(adminId);
+        
         const jobs = await Job.find({created_by:adminId}).populate({
             path:'company',
             createdAt:-1
