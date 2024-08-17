@@ -9,7 +9,7 @@ const router = express.Router();
 router.route("/post").post(authMiddleware, postJob);
 router.route("/get").get(authMiddleware,getAllJob);
 router.route("/getadminjobs").get(authMiddleware,getAdminJobs);
-router.route("/get/:id").get(getJobId);
+router.route("/get/:id").get(authMiddleware,getJobId);
 
 
 export default router;
