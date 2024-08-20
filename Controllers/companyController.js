@@ -22,7 +22,7 @@ export const registerCompany = async (req,res) => {
         
 
         const {companyName}=req.body;
-        console.log(companyName);
+        // console.log(companyName);
         
        
         if(!companyName){
@@ -39,7 +39,7 @@ export const registerCompany = async (req,res) => {
                 success:false
             })
         };
-        console.log(userId);
+        // console.log(userId);
         company = await Company.create({
             name:companyName,
             userId:req.user.userId            
@@ -105,9 +105,9 @@ export const getCompanyById = async (req,res)=>{
 
         
         const companyId = req.params.id;
-        console.log("company id: "+companyId);
-        console.log("req.params: "+req.params);
-        console.log("company id: "+companyId);
+        // console.log("company id: "+companyId);
+        // console.log("req.params: "+req.params);
+        // console.log("company id: "+companyId);
         const company = await Company.findById(companyId);
         if(!company){
             return res.status(404).json({
@@ -143,11 +143,11 @@ export const updateCompany = async (req,res)=>{
 
 
         const {name,description,website,location} =req.body;
-        console.log(name,description,website,location);
+        // console.log(name,description,website,location);
         
         const file = req.file;
-        console.log(" req.file" + req.file);
-        console.log("file "+file);
+        // console.log(" req.file" + req.file);
+        // console.log("file "+file);
         
         
         //  cld

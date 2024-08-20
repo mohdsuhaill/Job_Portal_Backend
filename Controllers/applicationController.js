@@ -65,7 +65,7 @@ export const getAppliedJobs = async (req,res)=>{
         const userId = req.user.userId ;
         // console.log("userId: "+userId);
         let user =await User.findById(userId);
-        console.log(user);
+        // console.log(user);
         if(!user){
           return res.status(400).json({
               message:"user Not Found",
@@ -153,14 +153,14 @@ export const updateStatus = async (req,res)=>{
         }
 
         const status = req.body.status;
-        console.log(" req i"+ req);
-        console.log(" request body " +req.body);
+        // console.log(" req i"+ req);
+        // console.log(" request body " +req.body);
         
         
-        console.log(status);
+        // console.log(status);
         
         const applicationId =req.params.id;
-        console.log("applicatio ID"+applicationId);
+        // console.log("applicatio ID"+applicationId);
         
         if(!status){
             return res.status(400).json({
