@@ -6,9 +6,9 @@ export const applyjob = async (req,res)=>{
     try {
 
         const userId = req.user.userId ;
-        console.log("userId: "+userId);
+        // console.log("userId: "+userId);
         let user =await User.findById(userId);
-        console.log(user);
+        // console.log(user);
         if(!user){
           return res.status(400).json({
               message:"user Not Found",
@@ -63,7 +63,7 @@ export const getAppliedJobs = async (req,res)=>{
     try {
        
         const userId = req.user.userId ;
-        console.log("userId: "+userId);
+        // console.log("userId: "+userId);
         let user =await User.findById(userId);
         console.log(user);
         if(!user){
@@ -103,9 +103,9 @@ export const getApplicents = async (req,res)=>{
     try {
 
         const userId = req.user.userId ;
-        console.log("userId: "+userId);
+        // console.log("userId: "+userId);
         let user =await User.findById(userId);
-        console.log(user);
+        // console.log(user);
         if(!user){
           return res.status(400).json({
               message:"user Not Found",
@@ -142,9 +142,9 @@ export const updateStatus = async (req,res)=>{
     try {
 
         const userId = req.user.userId ;
-        console.log("userId: "+userId);
+        // console.log("userId: "+userId);
         let user =await User.findById(userId);
-        console.log(user);
+        // console.log(user);
         if(!user){
           return res.status(400).json({
               message:"user Not Found",

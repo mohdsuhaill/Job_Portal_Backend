@@ -6,9 +6,9 @@ export const postJob = async (req, res) => {
   try {
       
     const userId = req.user.userId ;
-    console.log("userId: "+userId);
+    // console.log("userId: "+userId);
     let user =await User.findById(userId);
-    console.log(user);
+    // console.log(user);
     if(!user){
       return res.status(400).json({
           message:"user Not Found",
@@ -75,9 +75,9 @@ export const postJob = async (req, res) => {
 export const getAllJob = async (req,res)=>{
     
     const userId = req.user.userId ;
-    console.log("userId: "+userId);
+    // console.log("userId: "+userId);
     let user =await User.findById(userId);
-    console.log(user);
+    // console.log(user);
     if(!user){
       return res.status(400).json({
           message:"user Not Found",
@@ -116,9 +116,9 @@ export const getJobId = async (req,res)=>{
     try {
          
         const userId = req.user.userId ;
-        console.log("userId: "+userId);
+        // console.log("userId: "+userId);
         let user =await User.findById(userId);
-        console.log(user);
+        // console.log(user);
         if(!user){
           return res.status(400).json({
               message:"user Not Found",
@@ -149,9 +149,9 @@ export const getAdminJobs = async (req,res)=>{
     try {
 
         const userId = req.user.userId ;
-        console.log("userId: "+userId);
+        // console.log("userId: "+userId);
         let user =await User.findById(userId);
-        console.log(user);
+        // console.log(user);
         if(!user){
           return res.status(400).json({
               message:"user Not Found",
