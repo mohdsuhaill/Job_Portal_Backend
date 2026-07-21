@@ -20,7 +20,6 @@
 
 https://documenter.getpostman.com/view/36675650/2sA3s4kVYK
 
-
 <h1>Technologies Used:</h1>
 
 * Backend Language: Node.js
